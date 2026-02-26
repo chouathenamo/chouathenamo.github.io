@@ -2,37 +2,154 @@
    custom.css — Academic site styles for Chou (Athena) Mo
    ═══════════════════════════════════════════════════════════════ */
 
-/* ── Base Font ─────────────────────────────────────────────── */
+/* ── Reset & Base ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 16px; }
+
 body {
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 15px;
   line-height: 1.7;
   color: #333;
+  background: #fff;
 }
 
-/* ── Masthead ───────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1.2rem;
+  margin-bottom: .5rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #222;
+}
+
+p { margin: 0 0 1rem; }
+
+a { color: #5b5ea6; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+ul, ol { margin: 0 0 1rem; padding-left: 1.5rem; }
+li { margin-bottom: .25rem; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+table { border-collapse: collapse; width: 100%; }
+
+/* ── Layout: masthead + content ─────────────────────────────── */
 .masthead {
   border-bottom: 1px solid #e8e8e8;
-  margin-bottom: 0;
-  padding: 14px 0;
+  padding: .85rem 0;
+  background: #fff;
+}
+.masthead .container {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 1.5rem 0 3.5rem;
 }
 .masthead-title {
-  font-size: 1rem;
+  margin: 0;
+  font-size: .95rem;
   font-weight: 600;
   letter-spacing: 0;
 }
-.masthead-title a {
-  color: #333;
-  text-decoration: none;
-}
-.masthead-title a:hover {
-  color: #5b5ea6;
+.masthead-title a { color: #333; text-decoration: none; }
+.masthead-title a:hover { color: #5b5ea6; }
+
+.container.content {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
 }
 
-/* ── Sidebar ────────────────────────────────────────────────── */
+
+/* ── Sidebar — Structure & Positioning (Lanyon-style) ───────── */
+
+/* Hide the real checkbox */
+.sidebar-checkbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Sidebar is fixed off-screen to the left */
 .sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -16rem;
+  width: 16rem;
+  visibility: hidden;
+  overflow-y: auto;
   background-color: #f8f8f8;
-  border-right: 1px solid #e8e8e8;
+  border-right: 1px solid #e0e0e0;
+  z-index: 100;
+  transition: left .25s ease-in-out, visibility .25s ease-in-out;
+}
+
+/* Slide in when checkbox is checked */
+#sidebar-checkbox:checked ~ .sidebar {
+  left: 0;
+  visibility: visible;
+}
+
+/* Push main content right when sidebar opens */
+#sidebar-checkbox:checked ~ .wrap {
+  transform: translateX(16rem);
+}
+
+/* The hamburger toggle button */
+.sidebar-toggle {
+  position: fixed;
+  top: .85rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 99;
+  transition: background .15s;
+}
+.sidebar-toggle:before {
+  content: "";
+  display: block;
+  width: 1rem;
+  height: 2px;
+  background: #555;
+  box-shadow: 0 4px 0 #555, 0 8px 0 #555;
+}
+.sidebar-toggle:hover {
+  background: #f0f0f0;
+}
+
+/* Wrap and content */
+.wrap {
+  position: relative;
+  width: 100%;
+  transition: transform .25s ease-in-out;
+}
+
+/* Screen-reader only */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Masthead left-padding to clear the toggle button */
+.masthead .container {
+  padding-left: 3.5rem;
 }
 .sidebar-item {
   padding: 1rem 1.5rem;
