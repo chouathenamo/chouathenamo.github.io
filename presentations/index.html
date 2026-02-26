@@ -1,0 +1,48 @@
+---
+layout: default
+title: Presentations
+---
+
+<h1 class="page-title">Presentations</h1>
+
+<div class="presentations-list">
+  {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
+  {% for post in sorted_posts %}
+  <div class="pres-item">
+    <div class="pres-meta-left">
+      <span class="pres-date">{{ post.date | date: "%b %Y" }}</span>
+    </div>
+    <div class="pres-content">
+      <a class="pres-title" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+      {% if post.venue %}<div class="pres-venue">{{ post.venue }}</div>{% endif %}
+      {% if post.location %}<div class="pres-location">{{ post.location }}</div>{% endif %}
+      {% if post.description %}<div class="pres-desc">{{ post.description }}</div>{% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<!--
+  ─── HOW TO ADD A NEW PRESENTATION ──────────────────────────────────────────
+  Create a new file in _posts/ named:  YYYY-MM-DD-short-title.md
+
+  Use this front matter template:
+
+  ---
+  layout: post
+  title: "Full Presentation Title"
+  date: YYYY-MM-DD
+  venue: "Conference or Event Name"
+  location: "City, Country"
+  description: "One-sentence description shown on the listing page."
+  image: public/img/presentations/filename.jpg   # optional
+  links:
+    paper: https://...
+    slides: https://...
+    poster: https://...
+    video: https://...
+  ---
+
+  Then write the full text of your presentation below the front matter.
+  ────────────────────────────────────────────────────────────────────────────
+-->

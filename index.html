@@ -3,35 +3,81 @@ layout: default
 title: Home
 ---
 
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url | absolute_url }}">
-        {{ post.title }}
-      </a>
-    </h1>
+<div class="home-layout">
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-
-    {{ post.content }}
+  <!-- ─── Profile Column ─── -->
+  <div class="profile-col">
+    <img src="{{ site.baseurl }}/public/img/profile.jpg" alt="Chou (Athena) Mo" class="profile-photo">
+    <h2 class="profile-name">Chou (Athena) Mo</h2>
+    <p class="profile-title">B.S. Mathematics of Computation<br>University of California, Los Angeles</p>
+    <div class="profile-links">
+      <a href="{{ site.social.github }}" target="_blank">GitHub</a>
+      <a href="{{ site.social.linkedin }}" target="_blank">LinkedIn</a>
+      <a href="{{ site.social.scholar }}" target="_blank">Google Scholar</a>
+      <a href="{{ site.social.arxiv }}" target="_blank">arXiv</a>
+      <a href="mailto:athenamo@g.ucla.edu">Email</a>
+    </div>
   </div>
-  {% endfor %}
+
+  <!-- ─── Bio Column ─── -->
+  <div class="bio-col">
+    <p>
+      Hi! I'm Athena, an undergraduate researcher at UCLA studying Mathematics of Computation.
+      My research sits at the intersection of computer vision and medical imaging — I'm interested
+      in building robust, data-efficient models that can assist clinicians in surgical planning and
+      image-guided interventions.
+    </p>
+    <p>
+      I currently work in the <a href="https://mii.ucla.edu" target="_blank">Medical & Imaging Informatics (MII) lab</a>
+      under Dr. William Hsu, where I focus on intra-patient registration of lung CT with optimal transport methods.
+      Previously, I was a VISE Summer Fellow at Vanderbilt University in the VINE lab under Dr. Daniel Moyer,
+      where I developed a pelvic pose estimation pipeline for orthopedic surgical planning.
+    </p>
+    <p>
+      Outside of research, I lead the programming team for UCLA's
+      <a href="https://urc.cs.ucla.edu" target="_blank">University Rover Challenge</a> team,
+      co-lead a data science project at the UCLA Data Science Union, and sail competitively.
+    </p>
+  </div>
+
 </div>
 
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ paginator.next_page_path | absolute_url }}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ '/' | absolute_url }}">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ paginator.previous_page_path | absolute_url }}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
-</div>
+<!-- ─── Research Interests ─── -->
+<section class="home-section">
+  <h2 class="section-heading">Research Interests</h2>
+  <p>
+    Medical image analysis &nbsp;&middot;&nbsp;
+    Image-guided surgery &nbsp;&middot;&nbsp;
+    2D/3D registration &nbsp;&middot;&nbsp;
+    Landmark detection &nbsp;&middot;&nbsp;
+    Optimal transport &nbsp;&middot;&nbsp;
+    Computer vision
+  </p>
+</section>
+
+<!-- ─── News ─── -->
+<section class="home-section">
+  <h2 class="section-heading">News</h2>
+  <table class="news-table">
+    <tr>
+      <td class="news-date">Feb 2026</td>
+      <td>Presented <em>Enhanced Landmark Detection Model in Pelvic Fluoroscopy using 2D/3D Registration Loss</em> (oral) at SPIE Medical Imaging 2026, Vancouver, Canada.</td>
+    </tr>
+    <tr>
+      <td class="news-date">Jan 2026</td>
+      <td>Paper accepted to <strong>Medical Imaging with Deep Learning (MIDL) 2026</strong>: <em>Landmark Detection Uncertainty as a Reliability Weight for Robust Landmark-based 2D/3D Pelvic Pose Estimation</em>.</td>
+    </tr>
+    <tr>
+      <td class="news-date">Oct 2025</td>
+      <td>Joined the <strong>UCLA Medical & Imaging Informatics</strong> lab (Hsu lab) as an undergraduate researcher.</td>
+    </tr>
+    <tr>
+      <td class="news-date">Aug 2025</td>
+      <td>Paper accepted for oral presentation at SPIE Medical Imaging 2026 from work done at Vanderbilt VINE lab.</td>
+    </tr>
+    <tr>
+      <td class="news-date">May 2025</td>
+      <td>Started as a <strong>VISE Summer Fellow</strong> at Vanderbilt University School of Engineering.</td>
+    </tr>
+  </table>
+</section>

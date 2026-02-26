@@ -2,26 +2,33 @@
 layout: default
 ---
 
-<div class="post">
-  <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-date">{{ page.date | date_to_string }}</span>
-  {{ content }}
-</div>
+<div class="presentation-post">
+  <div class="presentation-header">
+    <a href="{{ site.baseurl }}/presentations/" class="back-link">&larr; Back to Presentations</a>
+    <h1 class="presentation-title">{{ page.title }}</h1>
+    <div class="presentation-meta">
+      <span class="presentation-venue">{{ page.venue }}</span>
+      {% if page.location %}<span class="presentation-location">{{ page.location }}</span>{% endif %}
+      <span class="presentation-date">{{ page.date | date: "%B %Y" }}</span>
+    </div>
+  </div>
 
-{% if site.related_posts.size >= 1 %}
-<div class="related">
-  <h2>Related posts</h2>
-  <ul class="related-posts">
-    {% for post in site.related_posts limit:3 %}
-      <li>
-        <h3>
-          <a href="{{ site.baseurl }}{{ post.url }}">
-            {{ post.title }}
-            <small>{{ post.date | date_to_string }}</small>
-          </a>
-        </h3>
-      </li>
-    {% endfor %}
-  </ul>
+  {% if page.image %}
+  <div class="presentation-image">
+    <img src="{{ site.baseurl }}/{{ page.image }}" alt="{{ page.title }}">
+  </div>
+  {% endif %}
+
+  <div class="presentation-body">
+    {{ content }}
+  </div>
+
+  {% if page.links %}
+  <div class="presentation-links">
+    {% if page.links.paper %}<a href="{{ page.links.paper }}" class="pub-btn" target="_blank">Paper</a>{% endif %}
+    {% if page.links.slides %}<a href="{{ page.links.slides }}" class="pub-btn" target="_blank">Slides</a>{% endif %}
+    {% if page.links.video %}<a href="{{ page.links.video }}" class="pub-btn" target="_blank">Video</a>{% endif %}
+    {% if page.links.poster %}<a href="{{ page.links.poster }}" class="pub-btn" target="_blank">Poster</a>{% endif %}
+  </div>
+  {% endif %}
 </div>
-{% endif %}

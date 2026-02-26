@@ -1,0 +1,418 @@
+/* ═══════════════════════════════════════════════════════════════
+   custom.css — Academic site styles for Chou (Athena) Mo
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Base Font ─────────────────────────────────────────────── */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* ── Masthead ───────────────────────────────────────────────── */
+.masthead {
+  border-bottom: 1px solid #e8e8e8;
+  margin-bottom: 0;
+  padding: 14px 0;
+}
+.masthead-title {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.masthead-title a {
+  color: #333;
+  text-decoration: none;
+}
+.masthead-title a:hover {
+  color: #5b5ea6;
+}
+
+/* ── Sidebar ────────────────────────────────────────────────── */
+.sidebar {
+  background-color: #f8f8f8;
+  border-right: 1px solid #e8e8e8;
+}
+.sidebar-item {
+  padding: 1rem 1.5rem;
+}
+.sidebar-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 .2rem;
+}
+.sidebar-sub {
+  font-size: .78rem;
+  color: #888;
+  margin: 0;
+}
+.sidebar-nav {
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  padding: .5rem 0;
+}
+.sidebar-nav-item {
+  display: block;
+  padding: .45rem 1.5rem;
+  font-size: .88rem;
+  color: #555;
+  text-decoration: none;
+  transition: background .15s, color .15s;
+}
+.sidebar-nav-item:hover {
+  background: #efefef;
+  color: #333;
+}
+.sidebar-nav-item.active {
+  color: #5b5ea6;
+  font-weight: 500;
+}
+.sidebar-footer {
+  padding: 1rem 1.5rem .5rem;
+}
+.sidebar-icons {
+  display: flex;
+  gap: .7rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.sidebar-icons a {
+  color: #888;
+  text-decoration: none;
+  transition: color .15s;
+  display: flex;
+  align-items: center;
+}
+.sidebar-icons a:hover {
+  color: #5b5ea6;
+}
+.sidebar-icon-text {
+  font-size: .78rem;
+  font-weight: 500;
+  letter-spacing: .02em;
+}
+
+/* ── Page & Section titles ──────────────────────────────────── */
+.page-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: .25rem;
+  color: #222;
+  border-bottom: 2px solid #5b5ea6;
+  padding-bottom: .35rem;
+}
+.page-subtitle {
+  color: #888;
+  font-size: .82rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+.section-heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  border-left: 3px solid #5b5ea6;
+  padding-left: .7rem;
+  margin-top: 2rem;
+  margin-bottom: .75rem;
+}
+
+/* ── Home Layout ────────────────────────────────────────────── */
+.home-layout {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+}
+.profile-col {
+  flex: 0 0 180px;
+  text-align: center;
+}
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #e8e8e8;
+  margin-bottom: .75rem;
+}
+.profile-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 .2rem;
+  color: #222;
+}
+.profile-title {
+  font-size: .78rem;
+  color: #777;
+  margin: 0 0 .8rem;
+  line-height: 1.5;
+}
+.profile-links {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+  align-items: center;
+}
+.profile-links a {
+  font-size: .8rem;
+  color: #5b5ea6;
+  text-decoration: none;
+}
+.profile-links a:hover {
+  text-decoration: underline;
+}
+.bio-col {
+  flex: 1;
+  padding-top: .5rem;
+}
+.bio-col p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: .92rem;
+}
+
+/* ── News table ─────────────────────────────────────────────── */
+.news-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .88rem;
+}
+.news-table tr {
+  border-bottom: 1px solid #f0f0f0;
+}
+.news-table tr:last-child {
+  border-bottom: none;
+}
+.news-table td {
+  padding: .55rem .5rem;
+  vertical-align: top;
+}
+.news-date {
+  white-space: nowrap;
+  color: #888;
+  font-size: .8rem;
+  padding-right: 1.2rem;
+  min-width: 80px;
+}
+.home-section {
+  margin-bottom: 1.5rem;
+}
+
+/* ── Publications ───────────────────────────────────────────── */
+.pub-year-group {
+  margin-bottom: 2rem;
+}
+.pub-year-label {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #aaa;
+  border-bottom: 1px solid #e8e8e8;
+  padding-bottom: .4rem;
+  margin-bottom: 1rem;
+}
+.pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.pub-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.pub-venue-badge {
+  flex: 0 0 auto;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: .2rem .5rem;
+  border-radius: 4px;
+  margin-top: .15rem;
+  min-width: 52px;
+  text-align: center;
+}
+.badge-conference { background: #dde8ff; color: #3050a0; }
+.badge-journal    { background: #d8f5e8; color: #1a7a4a; }
+.badge-workshop   { background: #fff0db; color: #9a5a00; }
+.badge-preprint   { background: #f0e8ff; color: #6030a0; }
+
+.pub-content { flex: 1; }
+.pub-title {
+  font-weight: 600;
+  color: #222;
+  margin-bottom: .2rem;
+  font-size: .92rem;
+  line-height: 1.4;
+}
+.pub-authors {
+  font-size: .84rem;
+  color: #555;
+  margin-bottom: .2rem;
+}
+.pub-venue {
+  font-size: .82rem;
+  color: #777;
+  margin-bottom: .35rem;
+}
+.pub-oral {
+  background: #ffeaea;
+  color: #b00;
+  font-size: .72rem;
+  font-weight: 600;
+  padding: .1rem .35rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.pub-buttons {
+  display: flex;
+  gap: .4rem;
+  flex-wrap: wrap;
+  margin-top: .3rem;
+}
+.pub-btn {
+  display: inline-block;
+  font-size: .74rem;
+  font-weight: 500;
+  padding: .15rem .55rem;
+  border: 1px solid #c0c8e0;
+  border-radius: 4px;
+  color: #4a5080;
+  background: #fff;
+  text-decoration: none;
+  transition: background .15s, border-color .15s;
+}
+.pub-btn:hover {
+  background: #eef0fc;
+  border-color: #5b5ea6;
+  color: #333;
+}
+.pub-btn-large {
+  font-size: .85rem;
+  padding: .4rem 1rem;
+  margin-bottom: 1rem;
+}
+
+/* ── Presentations List ─────────────────────────────────────── */
+.presentations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-top: 1rem;
+}
+.pres-item {
+  display: flex;
+  gap: 1.2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+.pres-item:last-child { border-bottom: none; }
+.pres-meta-left {
+  flex: 0 0 70px;
+  padding-top: .15rem;
+}
+.pres-date {
+  font-size: .78rem;
+  color: #aaa;
+  white-space: nowrap;
+}
+.pres-content { flex: 1; }
+.pres-title {
+  font-weight: 600;
+  font-size: .92rem;
+  color: #5b5ea6;
+  text-decoration: none;
+  line-height: 1.4;
+}
+.pres-title:hover { text-decoration: underline; }
+.pres-venue {
+  font-size: .82rem;
+  color: #555;
+  margin-top: .1rem;
+}
+.pres-location {
+  font-size: .8rem;
+  color: #888;
+}
+.pres-desc {
+  font-size: .82rem;
+  color: #777;
+  margin-top: .2rem;
+}
+
+/* ── Individual Presentation Post ──────────────────────────── */
+.presentation-post { max-width: 720px; }
+.back-link {
+  font-size: .82rem;
+  color: #888;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: .8rem;
+}
+.back-link:hover { color: #5b5ea6; }
+.presentation-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: .4rem;
+  line-height: 1.3;
+}
+.presentation-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem .8rem;
+  font-size: .83rem;
+  color: #777;
+  margin-bottom: 1.2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e8e8e8;
+}
+.presentation-image {
+  margin: 1rem 0 1.5rem;
+}
+.presentation-image img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.presentation-body { font-size: .92rem; }
+.presentation-links {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+/* ── CV Embed ───────────────────────────────────────────────── */
+.cv-embed-wrapper { margin-top: 1rem; }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .home-layout {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .profile-col {
+    flex: none;
+    width: 100%;
+  }
+  .profile-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .4rem .8rem;
+  }
+  .pub-item {
+    flex-direction: column;
+    gap: .5rem;
+  }
+  .pres-item {
+    flex-direction: column;
+    gap: .3rem;
+  }
+}
