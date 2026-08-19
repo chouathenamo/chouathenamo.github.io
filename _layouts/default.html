@@ -4,40 +4,37 @@
     {% include head.html %}
   </head>
   <body>
-    {% include sidebar.html %}
+    {% include header.html %}
 
-    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
-          </h3>
-        </div>
+    <main class="content">
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</span>
+        <span class="social-inline">
+          <a href="{{ site.social.github }}" target="_blank" rel="noopener">github</a> ·
+          <a href="{{ site.social.scholar }}" target="_blank" rel="noopener">scholar</a> ·
+          <a href="mailto:{{ site.author.email }}">email</a>
+        </span>
       </div>
-
-      <div class="container content">
-        {{ content }}
-      </div>
-    </div>
-
-    <label class="sidebar-toggle" for="sidebar-checkbox">
-      <span class="sr-only">Toggle sidebar</span>
-    </label>
+    </footer>
 
     <script>
-      (function(document) {
-        var toggle = document.querySelector('.sidebar-toggle');
-        var sidebar = document.querySelector('#sidebar');
-        var checkbox = document.querySelector('#sidebar-checkbox');
-
-        document.addEventListener('click', function(e) {
-          var target = e.target;
-          if(!checkbox.checked ||
-             sidebar.contains(target) ||
-             (target === checkbox || target === toggle)) return;
-          checkbox.checked = false;
-        }, false);
-      })(document);
+      // Theme toggle: remembers choice, defaults to system preference.
+      // (The saved theme is already applied early in <head>.)
+      (function () {
+        var root = document.documentElement;
+        var btn = document.querySelector('.theme-toggle');
+        if (btn) btn.addEventListener('click', function () {
+          var cur = root.getAttribute('data-theme');
+          var sysDark = matchMedia('(prefers-color-scheme: dark)').matches;
+          var next = cur ? (cur === 'dark' ? 'light' : 'dark') : (sysDark ? 'light' : 'dark');
+          root.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+        });
+      })();
     </script>
   </body>
 </html>

@@ -1,11 +1,21 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>
   {% if page.title == "Home" %}{{ site.title }}{% else %}{{ page.title }} &middot; {{ site.title }}{% endif %}
 </title>
 <meta name="description" content="{{ page.description | default: site.description }}">
+
+<!-- Apply saved theme early to avoid a flash of the wrong theme -->
+<script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+
+<!-- Pixelify Sans for titles/headings (body text uses Verdana) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ site.baseurl }}/public/css/custom.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ site.baseurl }}/public/css/custom.css?v={{ site.time | date: '%s' }}">
 <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+<!-- Pixel sailboat favicon -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'%3E%3Crect width='16' height='16' fill='%23f4f1ea'/%3E%3Cg fill='%23151515'%3E%3Crect x='8' y='2' width='1' height='9'/%3E%3Crect x='7' y='3' width='1' height='1'/%3E%3Crect x='6' y='4' width='2' height='1'/%3E%3Crect x='5' y='5' width='3' height='1'/%3E%3Crect x='4' y='6' width='4' height='1'/%3E%3Crect x='3' y='7' width='5' height='1'/%3E%3Crect x='2' y='8' width='6' height='1'/%3E%3C/g%3E%3Cg fill='%23d64545'%3E%3Crect x='3' y='11' width='10' height='1'/%3E%3Crect x='4' y='12' width='8' height='1'/%3E%3C/g%3E%3C/svg%3E">

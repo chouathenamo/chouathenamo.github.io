@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    {% include head.html %}
+  </head>
+  <body class="landing">
+    {{ content }}
+    <script src="{{ site.baseurl }}/public/js/landing.js?v={{ site.time | date: '%s' }}" defer></script>
+  </body>
+</html>
