@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "jekyll",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["/Users/athenamo/Documents/GitHub/chouathenamo.github.io/bin/serve.sh"],
+      "port": 4000
+    }
+  ]
+}

@@ -6,9 +6,33 @@ title: Publications
 <h1 class="page-title">Publications</h1>
 <p class="page-subtitle">ship's log · * denotes equal contribution · newest first</p>
 
-<div class="log">
+<div class="log-filter" role="group" aria-label="Filter publications">
+  <span class="log-filter__label">filter:</span>
+  <button type="button" class="btn log-filter__btn" data-filter="all" aria-pressed="true">All</button>
+  <button type="button" class="btn log-filter__btn" data-filter="oral" aria-pressed="false">Oral</button>
+  <span class="log-filter__sep" aria-hidden="true">·</span>
+  <button type="button" class="btn log-filter__btn" data-filter="midl" aria-pressed="false">MIDL</button>
+  <button type="button" class="btn log-filter__btn" data-filter="spie" aria-pressed="false">SPIE</button>
+  <button type="button" class="btn log-filter__btn" data-filter="isbi" aria-pressed="false">ISBI</button>
+</div>
 
-  <article class="log__entry">
+<div class="log" id="pub-log">
+
+  <article class="log__entry" data-tags="spie oral">
+    <div class="log__when">2027<br><span class="log__coord">Vancouver</span></div>
+    <div>
+      <span class="tag">SPIE</span> <span class="tag tag--oral">Oral</span>
+      <h3 class="log__title">Structure-Constrained Optimal Transport for Pulmonary Vessel Point Cloud Registration in Longitudinal Chest CT</h3>
+      <div class="log__authors"><strong>Chou Mo*</strong>, Yunzheng Zhu*, Luoting Zhuang, William Hsu</div>
+      <div class="log__venue"><em>SPIE Medical Imaging</em></div>
+      <div class="log__links">
+        <a href="mailto:athenamo@g.ucla.edu?subject=Paper%20Request" class="btn">Request Paper</a>
+      </div>
+    </div>
+  </article>
+
+
+  <article class="log__entry" data-tags="midl">
     <div class="log__when">2026<br><span class="log__coord">Taipei</span></div>
     <div>
       <span class="tag">MIDL</span>
@@ -22,7 +46,7 @@ title: Publications
     </div>
   </article>
 
-  <article class="log__entry">
+  <article class="log__entry" data-tags="spie oral">
     <div class="log__when">2026<br><span class="log__coord">Vancouver</span></div>
     <div>
       <span class="tag">SPIE</span> <span class="tag tag--oral">Oral</span>
@@ -37,11 +61,52 @@ title: Publications
     </div>
   </article>
 
+  <article class="log__entry" data-tags="isbi">
+    <div class="log__when">2027</div>
+    <div>
+      <span class="tag">ISBI</span> <span class="tag tag--review">Under Review</span>
+      <h3 class="log__title">Evaluating the Diagnostic Contribution of Learned Myocardial Motion beyond Volumetric Indices in Cine MRI</h3>
+      <div class="log__authors"><strong>Chou Mo</strong>, Shiyi Wang, Ruochen Sun, Fangxu Xing</div>
+      <div class="log__venue"><em>Submitted to IEEE International Symposium on Biomedical Imaging (ISBI)</em></div>
+    </div>
+  </article>
 </div>
+
+<script>
+  (function () {
+    var buttons = document.querySelectorAll('.log-filter__btn');
+    var entries = document.querySelectorAll('#pub-log .log__entry');
+
+    function apply(filter) {
+      buttons.forEach(function (b) {
+        b.setAttribute('aria-pressed', b.dataset.filter === filter ? 'true' : 'false');
+      });
+      entries.forEach(function (e) {
+        var tags = (e.dataset.tags || '').split(/\s+/);
+        e.hidden = !(filter === 'all' || tags.indexOf(filter) !== -1);
+      });
+    }
+
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function () {
+        apply(b.dataset.filter);
+        history.replaceState(null, '', b.dataset.filter === 'all' ? location.pathname : '#' + b.dataset.filter);
+      });
+    });
+
+    // Allow links like /publications/#spie
+    var initial = location.hash.slice(1).toLowerCase();
+    var valid = Array.prototype.some.call(buttons, function (b) { return b.dataset.filter === initial; });
+    apply(valid ? initial : 'all');
+  })();
+</script>
 
 <!--
   ─── ADD A PUBLICATION ──────────────────────────────────────────────
   Copy one <article class="log__entry"> block above, newest at the top.
   Tags: <span class="tag">VENUE</span>  ·  oral: <span class="tag tag--oral">Oral</span>
+  Filtering: set data-tags on the <article> to the lowercase venue, plus
+  "oral" if it was an oral, e.g. data-tags="spie oral".
+  A new venue also needs a matching button in the .log-filter bar above.
   ────────────────────────────────────────────────────────────────────
 -->

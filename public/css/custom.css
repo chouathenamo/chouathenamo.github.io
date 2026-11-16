@@ -399,7 +399,31 @@ body.landing { overflow: hidden; height: 100vh; cursor: none; }  /* the boat is 
   white-space: nowrap;
 }
 .tag--oral { border-color: var(--accent); color: var(--accent-ink); }
+.tag--review { border-style: dashed; color: var(--ink-soft); }
 .log__links { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .3rem; }
+.log__entry[hidden] { display: none; }
+
+/* publication filter bar */
+.log-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4rem;
+  margin-top: 1.2rem;
+}
+.log-filter__label,
+.log-filter__sep {
+  font-family: var(--mono);
+  font-size: .74rem;
+  color: var(--muted);
+}
+.log-filter__label { margin-right: .2rem; }
+.log-filter__sep { margin: 0 .15rem; }
+.log-filter__btn[aria-pressed="true"] {
+  border-color: var(--accent);
+  color: var(--accent-ink);
+  background: var(--paper-2);
+}
 
 .btn {
   font-family: var(--mono);
