@@ -1,16 +1,15 @@
 <header class="site-header">
   <div class="site-header__inner">
-    <a class="brand" href="{{ site.baseurl }}/" title="Home">
-      {% include boat.svg %}
-      <span>{{ site.title }}</span>
-    </a>
-    <nav class="site-nav">
-      <a href="{{ site.baseurl }}/about/"          class="{% if page.url contains '/about' %}active{% endif %}">about</a>
-      <a href="{{ site.baseurl }}/publications/"  class="{% if page.url contains '/publications' %}active{% endif %}">publications</a>
-      <a href="{{ site.baseurl }}/presentations/" class="{% if page.url contains '/presentations' %}active{% endif %}">presentations</a>
-      <a href="{{ site.baseurl }}/cv/"            class="{% if page.url contains '/cv' %}active{% endif %}">cv</a>
-      <a href="{{ site.baseurl }}/misc/"          class="{% if page.url contains '/misc' %}active{% endif %}">misc</a>
-      <button class="theme-toggle" type="button" aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+    <a class="brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="{{ site.baseurl }}/"               class="{% if page.url == '/' %}active{% endif %}">About</a>
+      <a href="{{ site.baseurl }}/publications/"  class="{% if page.url contains '/publications' %}active{% endif %}">Publications</a>
+      <a href="{{ site.baseurl }}/presentations/" class="{% if page.url contains '/presentations' %}active{% endif %}">Presentations</a>
+      <a href="{{ site.baseurl }}/cv/"            class="{% if page.url contains '/cv' %}active{% endif %}">CV</a>
+      <a href="{{ site.baseurl }}/misc/"          class="{% if page.url contains '/misc' %}active{% endif %}">Misc</a>
     </nav>
+    <button class="theme-toggle" type="button" aria-label="Toggle light/dark theme" title="Toggle theme">
+      <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+    </button>
   </div>
 </header>
